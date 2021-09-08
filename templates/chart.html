@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      /* Make the image fully responsive */
+      *{
+          margin: 0;
+          padding: 0;
+          font-family: 'Josefin Sans', sans-serif;
+      }
+      .carousel-inner img {
+        width: 100%;
+        height: 100%;
+      }
+      </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background-color: 	#DC143C;">
+            <a class="navbar-brand" href="/adminpage">Admin Page</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" id="nav1"href="/adminpage">Analysis</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/loaddata">View dataset</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/chart">About The Project <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/logout">logout</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+        
+         
+       </header>
+       <section>
+        <div class="container ">
+          <h1 class="text-center text-capitalize pt-5 text-danger">About Heat disease Dataset </h1>
+          <hr class="w-50 mx-auto pt-5">
+          <p class="h5 lead font-italic">
+            This dataset is gather by the the Uci Machine Learning Repository and You can Also Gather the data from the kagel Website This Websites are Known For the data Souce for Machine learning tasks
+            This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. In particular, the Cleveland database is the only one that has been used by ML researchers to this date. 
+            The "goal" field refers to the presence of heart disease in the patient. It is integer valued from 0 (no presence) to 4. 
+            Experiments with the Cleveland database have concentrated on simply attempting to distinguish presence (values 1,2,3,4) from absence (value 0).
+            The names and social security numbers of the patients were recently removed from the database, replaced with dummy values.
+            One file has been "processed", that one containing the Cleveland database. All four unprocessed files also exist in this directory.
+            To see Test Costs (donated by Peter Turney), please see the folder "Costs"
+          </p>
+          <h1 class="text-center text-capitalize pt-5 text-success">Links To Download the dataset Information</h1>
+          <hr class="w-50 mx-auto pt-5">
+          <p class="h5 text-center text-primary">https://archive.ics.uci.edu/ml/datasets/Heart+Disease</p>
+          <p class="h5 text-center text-primary">https://www.kaggle.com/bhanvimenghani/heart-disease-pred-hc/notebook</p>
+
+          <h1 class="text-center text-capitalize pt-5">Attribute Information</h1>
+          <hr class="w-50 mx-auto pt-5">
+          <h1 class="text-center text-danger">Lables</h1><br>
+          
+          <p class="h4 lead">This database contains 76 attributes, but all published experiments refer to using a subset of 14 of them. </p>
+          <p class="text-center h3 text-info"> Only 14 attributes used: </p>
+          <p class=" font-italic h4 "> 1. Age:age in years </p>
+          <p class=" font-italic h4 "> 2. sex: sex (1 = male; 0 = female) </p>
+          <p class=" font-italic h4 "> 3. cp: chest pain type </p>
+          <ul class="h5 lead font-italic">
+              <li>Value 1: typical angina</li>
+              <li> Value 2: atypical angina</li>
+              <li>Value 3: non-anginal pain</li>
+              <li>Value 4: asymptomatic</li>
+          </ul>
+          <p class=" font-italic h4 "> 4.trestbps: resting blood pressure (in mm Hg on admission to the hospital) </p>
+          <p class=" font-italic h4 "> 5.  chol: serum cholestoral in mg/dl </p>
+          <p class=" font-italic h4 "> 6. fbs: (fasting blood sugar > 120 mg/dl) (1 = true; 0 = false) </p>
+          <p class=" font-italic h4 "> 7. restecg: resting electrocardiographic results</p>
+          <ul class="h5 lead font-italic">
+              <li>Value 0: normal</li>
+              <li>Value 1: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)</li>
+              <li>Value 2: showing probable or definite left ventricular hypertrophy by Estes' criteria</li>
+          </ul>
+          <p class=" font-italic h4 "> 8.thalach: maximum heart rate achieved </p>
+          <p class=" font-italic h4 "> 9.exang: exercise induced angina (1 = yes; 0 = no) </p>
+          <p class=" font-italic h4 "> 10.oldpeak = ST depression induced by exercise relative to rest </p>
+          <p class=" font-italic h4 "> 11.slope: the slope of the peak exercise ST segment </p>
+          <ul class="h5 lead font-italic">
+              <li>Value 1: upsloping</li>
+              <li>Value 2: flat</li>
+              <li> Value 3: downsloping</li>
+          </ul>
+          <p class=" font-italic h4 "> 12.ca: number of major vessels (0-3) colored by flourosopy </p>
+          <p class=" font-italic h4 "> 13. thal: 3 = normal; 6 = fixed defect; 7 = reversable defect </p>
+          
+          <br>
+          <h1 class="text-center text-primary">Classes</h1>
+          <p class="text-center h3 text-danger">"0 ":Person Does not Have Any Heart disease</p>
+          <p class="text-center h3 text-success"> "1": Person Dose Have the Heart disease</p><br>
+
+          <h1 class="text-center text-capitalize pt-5 text-danger">Corelation Matrix of the Dataset </h1>
+          <hr class="w-50 mx-auto pt-5">
+          <p class="h5 lead font-italic">A correlation matrix is a table showing correlation coefficients between variables.
+            Each cell in the table shows the correlation between two variables. 
+            A correlation matrix is used to summarize data, as an input into a more advanced analysis, and as a diagnostic for advanced analyses.</p><br>
+
+
+
+
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">SL.no</th>
+                <th scope="col">Features</th>
+                <th scope="col">Corelation Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Target</td>
+                <td>1.000000</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>cp</td>
+                <td>0.433798</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>thalach </td>
+                <td>0.421741</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>slope  </td>
+                <td>0.345877</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>restecg</td>
+                <td>0.137230</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>fbs</td>
+                <td>-0.028046</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>chol </td>
+                <td>-0.085239</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>trestbps  </td>
+                <td>-0.144931</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>age   </td>
+                <td>-0.225439</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td>sex   </td>
+                <td>-0.280937</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td>thal </td>
+                <td>-0.344029</td>
+              </tr>
+              <tr>
+                <th scope="row">11</th>
+                <td>ca</td>
+                <td>-0.391724</td>
+              </tr>
+              <tr>
+                <th scope="row">12</th>
+                <td>oldpeak  </td>
+                <td>-0.430696</td>
+              </tr>
+              <tr>
+                <th scope="row">13</th>
+                <td>exang </td>
+                <td>-0.436757</td>
+              </tr>
+              
+
+            </tbody>
+          </table>
+          <h1 class="text-center text-capitalize pt-5 text-success">Confussion Matrix of the Dataset </h1>
+          <hr class="w-50 mx-auto pt-5">
+          <p class="h5 lead font-italic">
+            A confusion matrix is a table that is often used to describe the performance of a classification model (or "classifier") on a set of test data for which the true values are known. 
+            The confusion matrix itself is relatively simple to understand, but the related terminology can be confusing.
+          </p><br>
+          <img src="{{ url_for('static', filename='images/confusionMatrix.png') }}" class="img-fluid" alt="">
+          <h1 class="text-center text-capitalize pt-5 text-primary">Accuracy of the differnet Algorithum of the Dataset </h1>
+          <hr class="w-50 mx-auto pt-5">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">slno</th>
+                <th scope="col">Algorithum Name</th>
+                <th scope="col">Accuracy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>support vector machine</td>
+                <td>0.8524590163934426</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>K-Nearest Neighbor(KNN) </td>
+                <td>0.8688524590163934</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>random Forest</td>
+                <td>0.9354838709677419</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>desssion tree</td>
+                <td>0.8524590163934426</td>
+              </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td>logistic regession</td>
+                <td>0.9180327868852459</td>
+              </tr>
+              
+              
+              
+            </tbody>
+          </table>
+          <h1 class="text-center text-capitalize pt-5 text-danger">Pie Chat Represtation of the differnet Algorithum</h1>
+          <hr class="w-50 mx-auto pt-5">
+              
+           
+          </div>
+       </section>
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+       <canvas id="myChart"></canvas>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <body>
+
+  
+
+
+
+
+
+
+        <canvas id="pie-chart" width="900" height="400"></canvas>
+    </body>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>
+    <script>
+        new Chart(document.getElementById("pie-chart"), {
+             type: 'pie',
+              data: {
+                labels: {{labels | tojson}},
+                datasets: [{
+                  label: "Pie Chart",
+                  backgroundColor: {{colors | tojson}},
+                data: {{values | tojson}}
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: 'Pie Chart Title'
+                }
+              }
+            });
+    </script>
+    </body>

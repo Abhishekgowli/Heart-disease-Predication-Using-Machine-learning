@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <title>Predicting The Results</title>
+
+    <style>
+        /* Make the image fully responsive */
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .carousel-inner img {
+          width: 100%;
+          height: 100%;
+        }
+        </style>
+  </head>
+  <body>
+   <header>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background-color: 	#DC143C;">
+        <a class="navbar-brand" href="#">Admin Page</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" id="nav1"href="/login">Analysis <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/loaddata">View dataset</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/chart">About The Project</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">logout</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+    
+      <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='images/f1.jpg') }}" alt="Los Angeles" width="1100" height="500">
+            <div class="carousel-caption">
+              <h3> “I believe health care is a civil right.”</h3>
+              <p>Physical fitness is the first requisite of happiness.</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='images/f2.jpg') }}" alt="Chicago" width="1100" height="500">
+            <div class="carousel-caption">
+              <h3>Like education, healthcare also needs to be given importance</h3>
+              <p>We need a cost-effective, high-quality health care system, guaranteeing health care to all of our people as a right</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='images/f3.jpg') }}" alt="New York" width="1100" height="500">
+            <div class="carousel-caption">
+              <h3> “Take care of your health, that it may serve you to serve God.”</h3>
+              <p>Treat your body like it belongs to someone you love</p>
+            </div>   
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+   </header>
+   <section>
+    <div class="container-fluid">
+        <h1 class="text-center text-capitalize pt-5">Enter the details For Heart disease Predication </h1>
+        <hr class="w-50 mx-auto pt-5">
+        <div class="w-50 mx-auto">
+            <form action="/predict" method="POST">
+                <div class="row ml-3 mb-5">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="email" class="h5"> Age</label>
+                                <input type="number" class="form-control" placeholder="Age Of the Person" id="email" autocomplete="off" name="age" required>
+                              </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="cars" class="h5">2.sex (1 = male; 0 = female)</label><br>
+                            <select class="custom-select" name="sex" required>
+                                <option selected value="">Open this select For Enter the Sex </option>
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                              </select>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="row ml-3 mb-5">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="cars" class="h5">3.cp: chest pain type</label><br>
+                            <select class="custom-select" name="cp">
+                                <option selected>Open this select For Enter the Chest pain </option>
+                                <option value="0">Typical angina</option>
+                                <option value="1">atypical angina</option>
+                                <option value="2">non-anginal pain</option>
+                                <option value="3">asymptomatic</option>
+                              </select>
+                        </div>
+                        
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="email" class="h5"> 4.trestbps: resting blood pressure </label>
+                            <input type="text" class="form-control" placeholder=" bp in mm Hg on admission to the hospital" id="email" autocomplete="off" name="trestbps">
+                          </div>
+
+                    </div>
+
+                </div>
+                <div class="row ml-3 mb-5">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="email" class="h5">5.chol: serum cholestoral in mg/dl</label>
+                            <input type="text" class="form-control" placeholder="chol: serum cholestoral in mg/dl" id="email" autocomplete="off" name="chol">
+                          </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="cars" class="h5">6.fbs: (fasting blood sugar > 120 mg/dl)</label><br>
+                            <select class="custom-select" name="fbs">
+                                <option selected>(1 = true; 0 = false) </option>
+                                <option value="0">False</option>
+                                <option value="1">True</option>
+                                
+                              </select>
+                        </div>
+                        
+
+                    </div>
+
+                </div>
+                <div class="row ml-3 mb-5">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="cars" class="h5">7.resting electrocardiographic results</label><br>
+                            <select class="custom-select" name="restecg">
+                                <option selected> restecg value</option>
+                                <option value="0"> Value 0: normal</option>
+                                <option value="1"> Value 1: having ST-T wave abnormality </option>
+                                <option value="2">Value 2: showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
+                                
+                              </select>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="email" class="h5">  8.maximum heart rate achieved</label>
+                            <input type="text" class="form-control" placeholder="thalach: maximum heart rate achieved" id="email" autocomplete="off" name="thalach">
+                          </div>
+
+                    </div>
+
+                </div>
+                <div class="row ml-3 mb-5">
+                  <div class="col-lg-6 col-md-6 col-12">
+                      <div class="form-group">
+                          <label for="cars" class="h5">9.exang: exercise induced angina</label><br>
+                          <select class="custom-select" name="exang">
+                              <option selected value=""> exang: exercise induced angina 0=Y,1=N</option>
+                              <option value="0"> Yes</option>
+                              <option value="1"> No</option>
+                              
+                              
+                            </select>
+                      </div>
+
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12">
+                      <div class="form-group">
+                          <label for="email" class="h5">  10.oldpeak</label>
+                          <input type="text" class="form-control" placeholder="oldpeak = ST depression induced by exercise relative to rest" id="email" autocomplete="off" name="oldpeak">
+                        </div>
+
+                  </div>
+
+              </div>
+                
+                <div class="row ml-3 mb-5">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="email" class="h5"> 11. slope: the slope of the peak exercise ST segment</label>
+                            <input type="text" class="form-control" placeholder=" slope: the slope of the peak exercise ST segment" id="email" autocomplete="off" name="slope">
+                          </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="email" class="h5"> 12.number of major vessels (0-3) colored by flourosopy</label>
+                            <input type="text" class="form-control" placeholder="number of major vessels (0-3) colored by flourosopy" id="email" autocomplete="off" name="ca">
+                          </div>
+
+                    </div>
+
+                </div>
+                <div class="row ml-3 mb-5">
+                    <div class="col-lg-6 col-md-6 col-12">
+                      <div class="form-group">
+                        <label for="cars" class="h5">13.Thal</label><br>
+                        <select class="custom-select" name="thal">
+                            <option selected> Thal</option>
+                            <option value="1"> Normal</option>
+                            <option value="2"> fixed defect</option>
+                            <option value="3"> reversable defect</option>
+                            
+                            
+                          </select>
+                    </div>
+
+                    </div>
+                    
+                    
+
+                </div>
+                
+                
+                
+                  
+                  
+                  
+                
+                <button type="submit" class="btn btn-primary btn-block from-group">Submit</button>
+                <br>
+              </form>
+        </div>
+        </div>
+   </section>
+
+
+
+
+
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+   </body>
+   </html>
