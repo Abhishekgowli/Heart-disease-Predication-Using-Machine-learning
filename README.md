@@ -14,6 +14,10 @@ This Project is created as the Proof of concept for my Master of computer applia
 ## Screenshots
 
 ![App Screenshot](https://github.com/Abhishekgowli/Heart-disease-Predication-Using-Machine-learning/blob/master/Sccrenshorts/s1.png)
+![App Screenshot](https://github.com/Abhishekgowli/Heart-disease-Predication-Using-Machine-learning/blob/master/Sccrenshorts/s2.png)
+![App Screenshot](https://github.com/Abhishekgowli/Heart-disease-Predication-Using-Machine-learning/blob/master/Sccrenshorts/s3.png)
+![App Screenshot](https://github.com/Abhishekgowli/Heart-disease-Predication-Using-Machine-learning/blob/master/Sccrenshorts/s4.png)
+![App Screenshot](https://github.com/Abhishekgowli/Heart-disease-Predication-Using-Machine-learning/blob/master/Sccrenshorts/s5.png)
 
   
 ## Installation
