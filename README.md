@@ -13,7 +13,7 @@ This Project is created as the Proof of concept for my Master of computer applia
   
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/Abhishekgowli/Heart-disease-Predication-Using-Machine-learning/blob/master/Sccrenshorts/s1.png)
 
   
 ## Installation
