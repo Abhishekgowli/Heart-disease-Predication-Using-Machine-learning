@@ -2,7 +2,7 @@
 # Heart disease Predication using Machine Learning Algorithms
 
 Heart disease Predication by using machine lerning algorithums by performing the comparitive analysis of the different machine learing algorithms that are the K-Nearest Neighbour , Support Vector Machine , Logistic regression , and random forest Algorithms. 
-This Project is created as the Proof of concept for my Master of computer appliation Mini Project and the Aim of the Project is to  perform the comparitive analysis and we got the accuracy of 89.23% and we also The trial results verify that Random Forest algorithm has achieved the highest accuracy of 89.23% compared to other ML algorithms implemented. And also we deployed the machine learning model in the flask local server.
+This Project is created as the Proof of concept for my Master of computer appliation Mini Project and the Aim of the Project is to  perform the comparitive analysis and we got the accuracy of 89.23% and we also . And also we deployed the machine learning model in the flask local server.
 
 ## Tech Stack
 
